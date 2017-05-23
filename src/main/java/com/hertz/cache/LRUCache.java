@@ -13,7 +13,7 @@ import com.google.common.cache.CacheBuilder;
  * 
  * @author Subba
  */
-@Component()
+@Component
 public class LRUCache<K,T> implements Cache<K,T> {
     
     private com.google.common.cache.Cache<K,T> guavaCache;
@@ -38,7 +38,7 @@ public class LRUCache<K,T> implements Cache<K,T> {
 	public T get(K key, CacheLoader<K, T> loader) {
         try {
             LoaderCaller lc = new LoaderCaller(loader, key);
-            T obj = guavaCache.get(key, lc);
+            T obj = (T)guavaCache.get(key, lc);
             return obj;
         } catch (ExecutionException ex) {
             throw new RuntimeException(ex);
