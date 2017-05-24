@@ -19,7 +19,7 @@ spring:
   jpa:
         database: MYSQL
         hibernate:
-            ddl-auto: create
+            ddl-auto: validate
 
   datasource:
         url: jdbc:mysql://localhost:3306/ms_product?useSSL=false
