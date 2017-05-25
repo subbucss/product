@@ -4,14 +4,14 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: 127.0.0.1
+    hostname: 52.14.165.19
     nonSecurePort: ${server.port}
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId:  ${spring.application.name}
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/      
+      defaultZone: http://52.14.165.19:8761/eureka/      
 
 spring:
   application:
@@ -22,7 +22,7 @@ spring:
             ddl-auto: validate
 
   datasource:
-        url: jdbc:mysql://localhost:3306/ms_product?useSSL=false
+        url: jdbc:mysql://52.14.165.19:3306/ms_product?useSSL=false
         username: root
         password: root
         driver-class-name: com.mysql.jdbc.Driver 
