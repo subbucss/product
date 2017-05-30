@@ -33,8 +33,8 @@ import org.hibernate.annotations.Where;
  */
 
 @Entity
-@Table(name = "CATEGORIES", uniqueConstraints = {@UniqueConstraint(columnNames = {"CATEGORY_NAME"})})
-@SQLDelete(sql="UPDATE CATEGORIES SET IS_DELETED = 1 WHERE ID = ?")
+@Table(name = "categories", uniqueConstraints = {@UniqueConstraint(columnNames = {"CATEGORY_NAME"})})
+@SQLDelete(sql="UPDATE categories SET IS_DELETED = 1 WHERE ID = ?")
 @Where(clause="IS_DELETED = 0 OR IS_DELETED IS NULL")
 public class Category implements Serializable{
 

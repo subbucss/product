@@ -43,7 +43,7 @@ public class ProductDao{
 		Timestamp timestamp = new Timestamp(date.getTimeInMillis());
 		
 		String sql = " FROM product_master PM LEFT OUTER JOIN  cat_product_rel CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
-					 " LEFT OUTER JOIN CATEGORIES CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
+					 " LEFT OUTER JOIN categories CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
 					 + "WHERE PM.START_DATE <= ? AND (PM.END_DATE >= ? OR PM.END_DATE IS NULL) ";
 		List<Object> inputs = new ArrayList<Object>();
 		inputs.add(timestamp);
@@ -95,7 +95,7 @@ public class ProductDao{
 		Timestamp timestamp = new Timestamp(date.getTimeInMillis());
 		
 		String sql = " FROM product_master PM LEFT OUTER JOIN  cat_product_rel CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
-					 " LEFT OUTER JOIN CATEGORIES CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
+					 " LEFT OUTER JOIN categories CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
 					 + "WHERE PM.START_DATE <= ? AND (PM.END_DATE >= ? OR PM.END_DATE IS NULL) ";
 		List<Object> inputs = new ArrayList<Object>();
 		inputs.add(timestamp);

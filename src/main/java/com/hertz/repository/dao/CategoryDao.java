@@ -29,7 +29,7 @@ public class CategoryDao {
 	JdbcTemplate jdbcTemplate = null;
 	
 	public Integer getCategoryCount(Integer categoryId) {
-		String noOfRecQuery = "SELECT count(*) AS RECORDS FROM CATEGORIES";
+		String noOfRecQuery = "SELECT count(*) AS RECORDS FROM categories";
 		Integer noOfRec = jdbcTemplate.queryForObject(noOfRecQuery, Integer.class);
 		System.out.println("Helo===>"+jdbcTemplate +"num of ecords===>"+noOfRec);
 	return 	noOfRec;
@@ -41,7 +41,7 @@ public class CategoryDao {
 			ids = ids.substring(0, ids.length() - 1);
 		}
 		
-		String sql = "SELECT ID, CATEGORY_IMAGE, CATEGORY_NAME, CATEGORY_DESC, SORT_ORDER, DATE_ADDED, LAST_MODIFIED FROM CATEGORIES WHERE ( IS_DELETED = 0 OR IS_DELETED IS NULL) AND ID IN (" + ids + ")";
+		String sql = "SELECT ID, CATEGORY_IMAGE, CATEGORY_NAME, CATEGORY_DESC, SORT_ORDER, DATE_ADDED, LAST_MODIFIED FROM categories WHERE ( IS_DELETED = 0 OR IS_DELETED IS NULL) AND ID IN (" + ids + ")";
 		
 		List<Category> categoryList = jdbcTemplate.query(sql, new RowMapper<Category>() {
 			@Override
