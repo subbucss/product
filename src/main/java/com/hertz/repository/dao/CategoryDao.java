@@ -29,7 +29,7 @@ public class CategoryDao {
 	JdbcTemplate jdbcTemplate = null;
 	
 	public Integer getCategoryCount(Integer categoryId) {
-		String noOfRecQuery = "SELECT count(*) AS RECORDS FROM categories";
+		String noOfRecQuery = "SELECT count(*) AS RECORDS FROM CATEGORIES";
 		Integer noOfRec = jdbcTemplate.queryForObject(noOfRecQuery, Integer.class);
 		System.out.println("Helo===>"+jdbcTemplate +"num of ecords===>"+noOfRec);
 	return 	noOfRec;
