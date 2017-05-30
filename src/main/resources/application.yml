@@ -6,9 +6,6 @@ eureka:
     status-page-url: http://52.14.162.212:8083/info
     health-check-url: http://52.14.162.212.208:8083/info
     home-page-url: http://52.14.162.212:8083/info
-    prefer-ip-address: true
-    hostname: 127.0.0.1
-    nonSecurePort: ${server.port}
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId:  ${spring.application.name}
