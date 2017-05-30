@@ -23,8 +23,8 @@ import org.hibernate.annotations.Where;
  *
  */
 @Entity
-@Table(name = "CAT_PRODUCT_REL")
-@SQLDelete(sql="UPDATE CAT_PRODUCT_REL SET IS_DELETED = 1 WHERE ID = ?")
+@Table(name = "cat_product_rel")
+@SQLDelete(sql="UPDATE cat_product_rel SET IS_DELETED = 1 WHERE ID = ?")
 @Where(clause="IS_DELETED = 0 OR IS_DELETED IS NULL")
 public class ProductCategoryRelationship implements Serializable {
 

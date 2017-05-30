@@ -32,8 +32,8 @@ import org.hibernate.annotations.Where;
  */
 
 @Entity
-@Table(name = "PRODUCT_MASTER", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
-@SQLDelete(sql="UPDATE PRODUCT_MASTER SET IS_DELETED = 1 WHERE ID = ?")
+@Table(name = "product_master", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
+@SQLDelete(sql="UPDATE product_master SET IS_DELETED = 1 WHERE ID = ?")
 @Where(clause="IS_DELETED = 0 OR IS_DELETED IS NULL")
 public class Product implements Serializable {
 	/**

@@ -23,8 +23,8 @@ import org.hibernate.annotations.Where;
  *
  */
 @Entity
-@Table(name = "CAT_REL_CAT_PARENT")
-@SQLDelete(sql="UPDATE CAT_REL_CAT_PARENT SET IS_DELETED = 1 WHERE ID = ?")
+@Table(name = "cat_rel_cat_parent")
+@SQLDelete(sql="UPDATE cat_rel_cat_parent SET IS_DELETED = 1 WHERE ID = ?")
 @Where(clause="IS_DELETED = 0 OR IS_DELETED IS NULL")
 public class CatCatRel implements Serializable{
 

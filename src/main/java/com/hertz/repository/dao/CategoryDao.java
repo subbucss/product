@@ -63,7 +63,7 @@ public class CategoryDao {
 	
 	public List<CatCatRel> getParentRelationships() {
 		
-		String sql = "SELECT ID, PK_CAT_ID, CAT_PARENT_ID FROM CAT_REL_CAT_PARENT WHERE (IS_DELETED = 0 OR IS_DELETED IS NULL)";
+		String sql = "SELECT ID, PK_CAT_ID, CAT_PARENT_ID FROM cat_rel_cat_parent WHERE (IS_DELETED = 0 OR IS_DELETED IS NULL)";
 		
 		List<CatCatRel> supRelData = jdbcTemplate.query(sql, new CatParentRowMapper());
 		supRelData = loadSupEmpIdenitityObjects(supRelData);

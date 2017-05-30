@@ -26,7 +26,7 @@ import org.hibernate.annotations.Where;
  */
 @Entity
 @Immutable
-@Table(name = "PRODUCT_MASTER", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
+@Table(name = "product_master", uniqueConstraints = {@UniqueConstraint(columnNames = {"ID"})})
 @Where(clause="IS_DELETED = 0 OR IS_DELETED IS NULL")
 public class ProductBase implements Serializable {
 

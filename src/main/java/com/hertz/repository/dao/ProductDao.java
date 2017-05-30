@@ -42,7 +42,7 @@ public class ProductDao{
 		Calendar date = Calendar.getInstance();
 		Timestamp timestamp = new Timestamp(date.getTimeInMillis());
 		
-		String sql = " FROM PRODUCT_MASTER PM LEFT OUTER JOIN  CAT_PRODUCT_REL CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
+		String sql = " FROM product_master PM LEFT OUTER JOIN  cat_product_rel CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
 					 " LEFT OUTER JOIN CATEGORIES CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
 					 + "WHERE PM.START_DATE <= ? AND (PM.END_DATE >= ? OR PM.END_DATE IS NULL) ";
 		List<Object> inputs = new ArrayList<Object>();
@@ -94,7 +94,7 @@ public class ProductDao{
 		Calendar date = Calendar.getInstance();
 		Timestamp timestamp = new Timestamp(date.getTimeInMillis());
 		
-		String sql = " FROM PRODUCT_MASTER PM LEFT OUTER JOIN  CAT_PRODUCT_REL CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
+		String sql = " FROM product_master PM LEFT OUTER JOIN  cat_product_rel CCR ON PM.ID=CCR.PK_PRD_ID AND (CCR.IS_DELETED = 0 OR CCR.IS_DELETED IS NULL) "+
 					 " LEFT OUTER JOIN CATEGORIES CAT ON CAT.ID = CCR.PK_CAT_ID AND (CAT.IS_DELETED = 0 OR CAT.IS_DELETED IS NULL) "
 					 + "WHERE PM.START_DATE <= ? AND (PM.END_DATE >= ? OR PM.END_DATE IS NULL) ";
 		List<Object> inputs = new ArrayList<Object>();
@@ -222,7 +222,7 @@ public class ProductDao{
 		}
 		
 		String sql = "SELECT ID, PRODUCT_TITLE, SHORT_DESCRIPTION, PRODUCT_TYPE, PRODUCT_CODE, START_DATE, END_DATE,IMAGE_NAME,IS_ACTIVE"
-				+ " FROM PRODUCT_MASTER WHERE ( IS_DELETED = 0 OR IS_DELETED IS NULL) AND ID IN (" + ids + ")";
+				+ " FROM product_master WHERE ( IS_DELETED = 0 OR IS_DELETED IS NULL) AND ID IN (" + ids + ")";
 		
 		List<ProductBase> couponList = jdbcTemplate.query(sql, new RowMapper<ProductBase>() {
 			@Override
@@ -246,7 +246,7 @@ public class ProductDao{
 	
 	public List<ProductCategoryRelationship> getProductCatRelationships() {
 		
-		String sql = "SELECT ID, PK_PRD_ID, PK_CAT_ID FROM CAT_PRODUCT_REL WHERE (IS_DELETED = 0 OR IS_DELETED IS NULL)";
+		String sql = "SELECT ID, PK_PRD_ID, PK_CAT_ID FROM cat_product_rel WHERE (IS_DELETED = 0 OR IS_DELETED IS NULL)";
 		
 		List<ProductCategoryRelationship> couCatRelData = jdbcTemplate.query(sql, new ProductCatParentRowMapper());
 		couCatRelData = loadProductCatRelObjects(couCatRelData);
